@@ -1,0 +1,18 @@
+#!/bin/bash
+
+GIT_AUTHOR_NAME="Erick Guevara"
+GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
+git config --global user.name "$GIT_AUTHOR_NAME"
+
+GIT_AUTHOR_EMAIL="eguevara@github.com"
+GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
+git config --global user.email "$GIT_AUTHOR_EMAIL"
+
+GH_USER="eguevara"
+git config --global github.user "$GH_USER"
+
+# Docker hub repo prefix
+export DOCKER_REPO_PREFIX=eguevara
+
+# gist token for vscode code settings.
+# 220694b3fb8eaca53a32680150bd66096a632667
