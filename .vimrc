@@ -1,12 +1,17 @@
 call plug#begin('~/.vim/plugged') 
 
 Plug 'fatih/vim-go', { 'tag': '*' }
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'mileszs/ack.vim'
+Plug 'skalnik/vim-vroom'
+
+" after adding a new plug, source, then :PlugInstall
 
 " Initialize plugin system
 call plug#end() 
@@ -35,7 +40,7 @@ set clipboard=unnamedplus
 
 " Settings
 set noerrorbells                " No beeps
-set number                      " Show line numbers
+set number relativenumber                      " Show line numbers
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set noshowmode                    " Show current mode.
@@ -52,10 +57,13 @@ set laststatus=2                " Show status line for al windows
 set hidden
 set ruler                       " Show the cursor position all the time
 set showmatch                 " Do show matching brackets by flickering
+
+" Searching
 set incsearch                   " Shows the match while typing
 set hlsearch                    " Highlight found searches
 set ignorecase                  " Search case insensitive...
 set smartcase                   " ... but not when search pattern contains upper case characters
+
 set ttyfast
 set lazyredraw                    " Wait to redraw "
 
@@ -73,19 +81,23 @@ set linebreak                   " break on full words
 set textwidth=79
 set formatoptions=qrn1
 
+" Indentation
 set autoindent
 set smartindent
-set complete-=i
-set showmatch
 set smarttab
-
-set et
-set tabstop=4
-set shiftwidth=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 
-set nrformats-=octal
-set shiftround
+filetype plugin on
+filetype indent on
+
+" Display tabs and trailing spaces visually
+set list listchars=tab:\ \ ,trail:·
+
+set linebreak    "Wrap lines at convenient points
+
 
 " Time out on key codes but not mappings.
 " Basically this makes terminal Vim work sanely.
@@ -107,17 +119,23 @@ syntax enable
 " Remove search highlight
 let mapleader=","
 nnoremap <leader><space> :nohlsearch<CR>
+
 " Close all but the current one
 nnoremap <leader>o :only<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>q :q<CR>
+
 nnoremap <space> zz
 nnoremap n nzzzv
 nnoremap N Nzzzv
 imap jj  <ESC>l
+nnoremap Y y$
+
+" Edit vimrc
 nnoremap <leader>ev :tabe $MYVIMRC<cr>
 nnoremap <leader>sv :so $MYVIMRC<cr>
-nnoremap Y y$
+
+"
 " Easier split navigations
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
@@ -178,22 +196,17 @@ endfunction
 autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 
 " vim-airline
-"let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ctrlp#enabled = 1
 let g:airline_theme = 'minimalist'
 let g:airline_powerline_fonts = 3
+autocmd VimEnter * AirlineToggleWhitespace 
 
 " vim-fugitive
 nnorema <leader>ga :Git add %:p<CR><CR>
 nnoremap <leader>gs :Gstatus<CR>
 nnoremap <leader>gp :Gpush<CR>
 vnoremap <leader>gb :Gblame<CR>
-
-" NerdTree
-nmap <C-n> :NERDTreeToggle<CR>
-noremap <Leader>n :NERDTreeToggle<cr>
-noremap <Leader>f :NERDTreeFind<cr>
 
 " to avoid setting paste and  nopaste
 let &t_SI .= "\<Esc>[?2004h"
@@ -214,7 +227,6 @@ nnoremap <silent> <Space>f :CtrlP<CR>
 nnoremap <silent> <Space>m :CtrlPMixed<CR>
 nnoremap <silent> <Space>r :CtrlPMRU<CR>
 
-let g:ctrlp_cmd = 'CtrlPMRU'
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'  " jump to a file if it's open already
 let g:ctrlp_mruf_max=450    " number of recently opened files
@@ -234,3 +246,32 @@ func! MyCtrlPTag()
 endfunc
 command! MyCtrlPTag call MyCtrlPTag()
 
+" ack.vim
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+
+" For ag grep searching on selected word
+map <Leader>a :Ack!<CR>
+map <Leader>A :Ack<CR>
+
+" For quickfix to the next on the list
+map <Leader><Leader> :cnext<CR>
+
+" vim-vroom
+let g:vroom_clear_screen=0
+let g:vroom_map_keys=0 " Let's keep <Leader>l for ListToggle
+let g:vroom_use_dispatch=1
+silent! map <unique> <Leader>R :VroomRunTestFile<CR>
+silent! map <unique> <Leader>r :VroomRunNearestTest<CR>
+
+" Switch between the last two files.
+nnoremap <leader>tt <c-^>
+
+" Window pane resizing
+nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Switch between tabs
+nnoremap <silent> <leader>1 :tabnext<CR>
+inoremap <silent> <leader>1  <Esc>:tabnext<CR>
