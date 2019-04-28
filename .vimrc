@@ -1,6 +1,5 @@
 call plug#begin('~/.vim/plugged') 
 
-Plug 'fatih/vim-go', { 'tag': '*' }
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
@@ -203,10 +202,7 @@ let g:airline_powerline_fonts = 3
 autocmd VimEnter * AirlineToggleWhitespace 
 
 " vim-fugitive
-nnorema <leader>ga :Git add %:p<CR><CR>
-nnoremap <leader>gs :Gstatus<CR>
-nnoremap <leader>gp :Gpush<CR>
-vnoremap <leader>gb :Gblame<CR>
+map <Leader>gb :Gblame<CR>
 
 " to avoid setting paste and  nopaste
 let &t_SI .= "\<Esc>[?2004h"
@@ -237,15 +233,6 @@ let g:ctrlp_cache_dir = $HOME.'/.cache/ctrlp'
 let g:ctrlp_match_window = 'bottom,order:btt,max:10,results:10'
 let g:ctrlp_buftag_types = {'go' : '--language-force=go --golang-types=ftv'}
 
-func! MyCtrlPTag()
-  let g:ctrlp_prompt_mappings = {
-        \ 'AcceptSelection("e")': ['<cr>', '<2-LeftMouse>'],
-        \ 'AcceptSelection("t")': ['<c-t>'],
-        \ }
-  CtrlPBufTag
-endfunc
-command! MyCtrlPTag call MyCtrlPTag()
-
 " ack.vim
 if executable('ag')
   let g:ackprg = 'ag --vimgrep'
@@ -256,7 +243,7 @@ map <Leader>a :Ack!<CR>
 map <Leader>A :Ack<CR>
 
 " For quickfix to the next on the list
-map <Leader><Leader> :cnext<CR>
+"map <Leader><Leader> :cnext<CR>
 
 " vim-vroom
 let g:vroom_clear_screen=0
@@ -265,9 +252,6 @@ let g:vroom_use_dispatch=1
 silent! map <unique> <Leader>R :VroomRunTestFile<CR>
 silent! map <unique> <Leader>r :VroomRunNearestTest<CR>
 
-" Switch between the last two files.
-nnoremap <leader>tt <c-^>
-
 " Window pane resizing
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
@@ -275,3 +259,6 @@ nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
 " Switch between tabs
 nnoremap <silent> <leader>1 :tabnext<CR>
 inoremap <silent> <leader>1  <Esc>:tabnext<CR>
+
+" Switch between last two files.
+nnoremap <leader><leader> <c-^>
