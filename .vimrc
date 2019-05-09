@@ -9,6 +9,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'skalnik/vim-vroom'
+Plug 'altercation/vim-colors-solarized'
 
 " after adding a new plug, source, then :PlugInstall
 
@@ -23,9 +24,9 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 filetype plugin indent on    " required
 
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
+set background=light
+"let g:solarized_termcolors=256
+"let g:solarized_termtrans=1
 colorscheme solarized
 
 "set guifont=Inconsolata:h15
@@ -39,7 +40,7 @@ set clipboard=unnamedplus
 
 " Settings
 set noerrorbells                " No beeps
-set number relativenumber                      " Show line numbers
+set number                      " Show line numbers
 set backspace=indent,eol,start  " Makes backspace key more powerful.
 set showcmd                     " Show me what I'm typing
 set noshowmode                    " Show current mode.
@@ -198,8 +199,9 @@ autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ctrlp#enabled = 1
 let g:airline_theme = 'minimalist'
-let g:airline_powerline_fonts = 3
-autocmd VimEnter * AirlineToggleWhitespace 
+"let g:airline_powerline_fonts = 3
+
+"autocmd VimEnter * AirlineToggleWhitespace 
 
 " vim-fugitive
 map <Leader>gb :Gblame<CR>
