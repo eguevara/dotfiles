@@ -224,7 +224,9 @@ let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 nnoremap <silent> <Space>f :CtrlP<CR>
 nnoremap <silent> <Space>m :CtrlPMixed<CR>
 nnoremap <silent> <Space>r :CtrlPMRU<CR>
+nnoremap <silent> <Space>t :CtrlPTag<CR>
 
+let g:ctrlp_extensions = ['tag']
 let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_switch_buffer = 'et'  " jump to a file if it's open already
 let g:ctrlp_mruf_max=450    " number of recently opened files
