@@ -10,6 +10,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'mileszs/ack.vim'
 Plug 'skalnik/vim-vroom'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ervandew/supertab'
 
 " after adding a new plug, source, then :PlugInstall
 
