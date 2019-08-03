@@ -14,6 +14,9 @@ Plug 'ervandew/supertab'
 
 " after adding a new plug, source, then :PlugInstall
 
+" ignore junk files!
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.idea/*,*/.DS_Store,*/vendor
+
 " Initialize plugin system
 call plug#end() 
 
@@ -251,9 +254,9 @@ map <Leader>A :Ack<CR>
 "map <Leader><Leader> :cnext<CR>
 
 " vim-vroom
-let g:vroom_clear_screen=0
 let g:vroom_map_keys=0 " Let's keep <Leader>l for ListToggle
 let g:vroom_use_dispatch=1
+let g:vroom_use_colors=1
 silent! map <unique> <Leader>R :VroomRunTestFile<CR>
 silent! map <unique> <Leader>r :VroomRunNearestTest<CR>
 
