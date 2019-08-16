@@ -266,8 +266,11 @@ silent! map <unique> <Leader>R :VroomRunTestFile<CR>
 silent! map <unique> <Leader>r :VroomRunNearestTest<CR>
 
 " Window pane resizing
+nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
+
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
+
 
 " Switch between tabs
 nnoremap <silent> <leader>1 :tabnext<CR>
