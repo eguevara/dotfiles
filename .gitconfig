@@ -3,6 +3,14 @@
 	email = eguevara@github.com
 [alias]
 
+    # Make the index look like the working copy scoped to directory.
+    aa = add --all
+
+    ci = commit --verbose
+
+    # Show me the diff in the index.
+    dc = diff --cached
+
     #This command ensures that when you stash, you catch the new files you haven’t caught with a git add yet.
     stash-all = stash save --include-untracked
 
