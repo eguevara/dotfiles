@@ -167,3 +167,5 @@ _testmain.go
 linux-*.deb
 
 .rakeTasks
+
+.extra
