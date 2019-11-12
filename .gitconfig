@@ -21,10 +21,6 @@
     # Easier to log display.    
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
-
-  # View abbreviated SHA, description, and history graph of the latest 20 commits
-  l = log --pretty=oneline -n 20 --graph --abbrev-commit
-
   # View the current working tree status using the short format
   s = status -s
 
@@ -84,7 +80,12 @@
 
   # List contributors with number of commits
   contributors = shortlog --summary --numbered
-  lg = log --color --decorate --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an (%G?)>%Creset' --abbrev-commit
+
+  # View abbreviated SHA, description, and history graph of the latest 20 commits
+  l = log --pretty=oneline -n 20 --graph --abbrev-commit
+  ll = log --color --stat --graph --oneline
+  lg = log --color --decorate --graph --oneline --abbrev-commit
+
   mdiff = "!f() { git stash | head -1 | grep -q 'No local changes to save'; x=$?; git merge --no-commit $1 &>/dev/null; git add -u &>/dev/null; git diff --staged; git reset --hard &>/dev/null; test $x -ne 0 && git stash pop &>/dev/null; }; f"
 
   # Codereview aliases
