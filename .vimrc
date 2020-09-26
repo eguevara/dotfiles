@@ -1,6 +1,7 @@
 call plug#begin('~/.vim/plugged') 
 
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
