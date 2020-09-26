@@ -5,6 +5,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-projectionist'
 Plug 'ctrlpvim/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -23,7 +24,7 @@ set wildignore+=*/.git/*,*/tmp/*,*.swp,*/vendor/*
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
 
 " Initialize plugin system
-call plug#end() 
+call plug#end()
 
 " abbreviations
 abb _me eguevara@github.com

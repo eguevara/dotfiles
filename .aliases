@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# https://github.com/sharkdp/bat
+alias cat='bat'
+
 alias vi=nvim
 
 # Kubectl alias
