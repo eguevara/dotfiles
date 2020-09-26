@@ -4,7 +4,11 @@
 export GOPATH="${HOME}/gocode"
 
 # go Root
-export GOROOT=/usr/local/go
+#export GOROOT=/usr/local/go
+
+#export PYTHONPATH=/Users/eguevara/Library/Python/2.7/bin
 
 # update path
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+# export PATH=$PATH
+
+export PATH=$PATH:$GOPATH/bin
