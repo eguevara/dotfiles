@@ -243,6 +243,13 @@ let g:ctrlp_max_depth=100
 let g:ctrlp_extensions = ['tag']
 let g:ctrlp_match_window = 'bottom,order:btt,max:10,results:20'
 
+" Use ripgrep if available
+if executable('rg')
+  set grepprg=rg\ --color=never
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+  let g:ctrlp_use_caching = 1
+endif
+
 " use rip grep for finding stuff.
 if executable('rg')
   let g:ackprg = 'rg --vimgrep --no-heading'
