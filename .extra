@@ -14,5 +14,4 @@ git config --global github.user "$GH_USER"
 # Docker hub repo prefix
 export DOCKER_REPO_PREFIX=eguevara
 
-# gist token for vscode code settings.
-# 220694b3fb8eaca53a32680150bd66096a632667
+export PATH=$PATH:/usr/local/go/bin

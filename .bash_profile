@@ -12,8 +12,4 @@ unset file
 # Set up jump to read bash cds.
 eval "$(jump shell)"
 
-# Needed to set up ruby enviornment to run ruby on rails 
-eval "$(rbenv init -)"
-eval "$(nodenv init -)"
-
 export PATH="$HOME/.cargo/bin:$PATH"
