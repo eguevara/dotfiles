@@ -12,4 +12,5 @@ unset file
 # Set up jump to read bash cds.
 eval "$(jump shell)"
 
-export PATH="$HOME/.cargo/bin:$PATH"
+# Needed for running Heaven
+eval "$(rbenv init -)"

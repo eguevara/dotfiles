@@ -13,7 +13,7 @@
 
     #This command ensures that when you stash, you catch the new files you haven’t caught with a git add yet.
     stash-all = stash save --include-untracked
-
+    br = !git switch $(git branch | cut -c 3- | awk '{print $1}' | fzf +m --preview 'git show --color=always {}')
 
     # Prune deletes any local branches which has been deleted from the remote.
     prune = fetch --prune
@@ -160,6 +160,8 @@
 	trustExitCode = true
 [credential]
 	helper = osxkeychain
+[url "git@github.com:"]
+	insteadOf = https://github.com/
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
