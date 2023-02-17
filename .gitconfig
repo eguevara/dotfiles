@@ -152,6 +152,7 @@
 	user = eguevara
 [core]
 	excludesfile = ~/.gitignore
+	editor = nvim
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

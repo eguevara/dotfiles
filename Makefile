@@ -10,3 +10,4 @@ dotfiles:
 	done; \
 	ln -fn $(CURDIR)/gitignore $(HOME)/.gitignore;
 	ln -snf $(CURDIR)/.bash_profile $(HOME)/.profile;
+	ln -snf $(CURDIR)/.vimrc $(HOME)/.ideavimrc;

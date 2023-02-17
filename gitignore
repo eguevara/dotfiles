@@ -2,6 +2,7 @@
 
 # ignore .env files from heaven for now
 .env
+.node-version
 
 script/build-ctags
 
