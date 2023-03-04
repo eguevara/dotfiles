@@ -2,6 +2,7 @@
 
 cask_args appdir: '/Applications'
 tap 'homebrew/cask'
+brew 'mas'
 
 brew 'git'
 brew 'make'
@@ -10,7 +11,6 @@ tap 'neovim/neovim'
 brew 'neovim', args: ['HEAD']
 
 brew 'openssl'
-cask 'iterm2'
 brew 'jump'
 brew 'coreutils'
 brew 'gnu-tar'
@@ -31,9 +31,6 @@ brew 'watch'
 brew 'bash'
 brew 'pgrep'
 brew 'pkill'
-
-tap 'universal-ctags/homebrew-universal-ctags'
-brew 'universal-ctags', args: ['HEAD']
 
 cask 'alfred'
 cask 'spotify'
