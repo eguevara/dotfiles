@@ -9,5 +9,7 @@ for file in ~/.{bashrc,bash_prompt,aliases,functions,path,dockerfunc,extra,expor
 done
 unset file
 
-eval "$(rbenv init -)"
-eval "$(jump shell)"
+eval "$(/opt/homebrew/bin/rbenv init -)"
+eval "$(/opt/homebrew/bin/jump shell)"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
