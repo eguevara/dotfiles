@@ -16,9 +16,6 @@ Plug 'ervandew/supertab'
 
 " after adding a new plug, source, then :PlugInstall
 
-" pull in other vim settings
-source ~/.vim/projections.vim
-
 " ignore junk files!
 set wildignore+=*/.git/*,*/tmp/*,*.swp,*/vendor/*
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
