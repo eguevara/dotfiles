@@ -10,7 +10,14 @@ ${HOME}/.vimrc:
 	ln -fs $(PWD)/vim/vimrc $@
 
 .PHONY : install
-install: $(DEFAULT_TARGETS) dotfiles
+install: $(DEFAULT_TARGETS) dotfiles vscode
+
+${HOME}/.config/Code/User/settings.json:
+	install -d $(dir $@)
+	ln -fs $(PWD)/settings.json $@
+
+.PHONY: vscode
+vscode: ${HOME}/.config/Code/User/settings.json
 
 .PHONY: dotfiles
 dotfiles:
