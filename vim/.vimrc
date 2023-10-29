@@ -21,7 +21,7 @@ colorscheme solarized
 set diffopt=filler,vertical
 
 " integrate with system clipboard
-set clipboard=unnamedplus
+" set clipboard=unnamed
 
 " Settings
 set noerrorbells                " No beeps
