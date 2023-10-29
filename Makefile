@@ -1,10 +1,20 @@
-.PHONY: all dotfiles
+SOURCES := vim
+DOTFILES := $(patsubst %, ${HOME}/.%, $(SOURCES))
 
-all: dotfiles
+DEFAULT_TARGETS := $(DOTFILES) ${HOME}/.vimrc
 
+$(DOTFILES): $(addprefix ${HOME}/., %) : ${PWD}/%
+	ln -fs $< $@
+
+${HOME}/.vimrc:
+	ln -fs $(PWD)/vim/vimrc $@
+
+.PHONY : install
+install: $(DEFAULT_TARGETS) dotfiles
+
+.PHONY: dotfiles
 dotfiles:
-	# add aliases for dotfiles
-	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git" -not -name ".*.swp" -not -name ".travis.yml" -not -name ".irssi" -not -name ".gnupg"); do \
+	for file in $(shell find $(CURDIR) -name ".*" -not -name ".gitignore" -not -name ".git"); do \
 		f=$$(basename $$file); \
 		ln -sfn $$file $(HOME)/$$f; \
 	done; \

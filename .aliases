@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # https://github.com/sharkdp/bat
-alias cat='bat'
+#alias cat='bat'
 
-alias vi=nvim
+#alias vi=nvim
 
 # Kubectl alias
 alias k=kubectl

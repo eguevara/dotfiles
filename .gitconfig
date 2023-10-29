@@ -146,6 +146,7 @@
 [merge]
 	conflictstyle = diff3
   log=true
+	ff = only
 [fetch]
 	prune = true
 [github]
@@ -153,12 +154,6 @@
 [core]
 	excludesfile = ~/.gitignore
 	editor = nvim
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 [credential]
 	helper = osxkeychain
 [url "git@github.com:"]
@@ -170,3 +165,4 @@
 	required = true
 [pull]
   rebase = true
+  ff = true 

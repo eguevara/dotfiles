@@ -1,27 +1,6 @@
-call plug#begin('~/.vim/plugged') 
-
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-projectionist'
-Plug 'ctrlpvim/ctrlp.vim', {'on': ['CtrlP', 'CtrlPMixed', 'CtrlPMRU']}
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'mileszs/ack.vim'
-Plug 'skalnik/vim-vroom'
-Plug 'altercation/vim-colors-solarized'
-Plug 'ervandew/supertab'
-
-" after adding a new plug, source, then :PlugInstall
-
 " ignore junk files!
 set wildignore+=*/.git/*,*/tmp/*,*.swp,*/vendor/*
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg
-
-" Initialize plugin system
-call plug#end()
 
 " abbreviations
 abb _me eguevara@github.com
@@ -32,8 +11,7 @@ filetype off                  " required
 filetype plugin indent on    " required
 
 set background=light
-"let g:solarized_termcolors=256
-"let g:solarized_termtrans=1
+let g:solarized_visibility="high"
 colorscheme solarized
 
 "set guifont=Inconsolata:h15
@@ -152,66 +130,11 @@ nnoremap <C-H> <C-W><C-H>
 noremap <SPACE> <C-F> " use space to scroll down
 noremap <TAB> ) " use tab to move to the next sentence
 
-" vim-go plugin settingo
-let g:go_fmt_fail_silently = 0
-let g:go_fmt_command ="goimports"
-let g:go_autodetect_gopath = 1
-let g:go_term_enabled = 1
-let g:go_snippet_engine = "neosnippet"
-let g:go_highlight_space_tab_error = 0
-let g:go_highlight_array_whitespace_error = 0
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_highlight_extra_types = 0
-let g:go_highlight_operators = 0
-let g:go_highlight_build_constraints = 1
-
-nmap <C-g> :GoDecls<cr>
-imap <C-g> <esc>:<C-u>GoDecls<cr>
-
 " autocompletion by type
 inoremap <leader>, <C-x><C-o>
 
-au FileType go nmap <Leader>s <Plug>(go-def-split)
-au FileType go nmap <Leader>v <Plug>(go-def-vertical)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>l <Plug>(go-metalinter)
-
-au FileType go nmap <leader>r  <Plug>(go-run)
-
-au FileType go nmap <leader>t  <Plug>(go-test)
-au FileType go nmap <leader>dt  <Plug>(go-test-compile)
-au FileType go nmap <Leader>d <Plug>(go-doc)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-
-au FileType go nmap <Leader>e <Plug>(go-rename)
-
-autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
-autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
-autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
-autocmd Filetype go command! -bang AT call go#alternate#Switch(<bang>0, 'tabe')
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-  let l:file = expand('%')
-  if l:file =~# '^\f\+_test\.go$'
-    call go#cmd#Test(0, 1)
-  elseif l:file =~# '^\f\+\.go$'
-    call go#cmd#Build(0)
-  endif
-endfunction
-
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
-
-" vim-airline
-let g:airline#extensions#branch#enabled = 1
-let g:airline#extensions#ctrlp#enabled = 1
-let g:airline_theme = 'minimalist'
-"let g:airline_powerline_fonts = 3
-
-"autocmd VimEnter * AirlineToggleWhitespace 
-
 " vim-fugitive
-map <Leader>gb :Gblame<CR>
+map <Leader>gb :Git blame<CR>
 
 " to avoid setting paste and  nopaste
 let &t_SI .= "\<Esc>[?2004h"
@@ -255,28 +178,11 @@ if executable('rg')
   let g:ctrlp_use_caching = 0
 endif
 
-" For ag grep searching on selected word
-map <Leader>a :Ack!<CR>
-map <Leader>A :Ack<CR>
-
-" vim-vroom
-let g:vroom_map_keys=0 " Let's keep <Leader>l for ListToggle
-" Used for github testing on line numbers.
-let g:vroom_test_unit_command='bin/tt'
-" Do not run bundle exec, use script instead.
-let g:vroom_use_bundle_exec=0
-" Used for spec testing with format documentation.
-let g:vroom_spec_command='script/test -fd'
-
-silent! map <unique> <Leader>R :VroomRunTestFile<CR>
-silent! map <unique> <Leader>r :VroomRunNearestTest<CR>
-
 " Window pane resizing
 nnoremap <silent> <Leader>h :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
 
 nnoremap <silent> <Leader>k :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>j :exe "resize " . (winheight(0) * 2/3)<CR>
-
 
 " Switch between tabs
 nnoremap <silent> <leader>1 :tabnext<CR>
