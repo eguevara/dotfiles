@@ -22,7 +22,7 @@
     glog = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
   # View the current working tree status using the short format
-  s = status -s
+  st = status -sb
 
   # Show the diff between the latest commit and the current state
   d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
@@ -88,14 +88,6 @@
 
   mdiff = "!f() { git stash | head -1 | grep -q 'No local changes to save'; x=$?; git merge --no-commit $1 &>/dev/null; git add -u &>/dev/null; git diff --staged; git reset --hard &>/dev/null; test $x -ne 0 && git stash pop &>/dev/null; }; f"
 
-  # Codereview aliases
-  change = codereview change
-  gofmt = codereview gofmt
-  mail = codereview mail
-  pending = codereview pending
-  submit = codereview submit
-  sync = codereview sync
-
 [apply]
 
   # Detect whitespace errors when applying a patch
@@ -106,30 +98,10 @@
   # Use colors in Git commands that are capable of colored output when
   # outputting to the terminal. (This is the default setting in Git e 1.8.4.)
   ui = auto
-
-[color "branch"]
-
-  current = yellow reverse
-  local = yellow
-  remote = green
-
-[color "diff"]
-
-  meta = yellow bold
-  frag = magenta bold # line info
-  old = red # deletions
-  new = green # additions
-
-[color "status"]
-
-  added = yellow
-  changed = green
-  untracked = cyan
-
-[diff]
-
-  # Detect copies as well as renames
-  renames = copies
+  interactive = true
+  status = true
+  branch = true
+  diff = true
 
 [help]
 
@@ -137,32 +109,8 @@
   autocorrect = 1
 
 [push]
-
-  # Use the Git 1.x.x default to avoid errors on machines with old Git
-  # installations. To use `simple` instead, add this to your `~/.extra` file:
-  # `git config --global push.default simple`. See http://git.io/mMah-w.
-  default = matching
-
+  default = current
 [merge]
-	conflictstyle = diff3
-  log=true
-	ff = only
-[fetch]
-	prune = true
-[github]
-	user = eguevara
-[core]
-	excludesfile = ~/.gitignore
-	editor = nvim
-[credential]
-	helper = osxkeychain
-[url "git@github.com:"]
-	insteadOf = https://github.com/
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+    tool = vimdiff
 [pull]
-  rebase = true
-  ff = true 
+  rebase = false
