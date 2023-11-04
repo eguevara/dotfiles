@@ -1,176 +1,152 @@
 // Place your settings in this file to overwrite the default settings
 {
-    "vim.hlsearch": true,
-    "vim.leader": ",",
-    "vim.insertModeKeyBindings": [
+  "vim.hlsearch": true,
+  "vim.leader": ",",
+  "vim.useCtrlKeys": false,
+  "vim.commandLineModeKeyBindings": [],
+  "vim.insertModeKeyBindings": [
+    {
+      "before": [
+        "j",
+        "j"
+      ],
+      "after": [
+        "<Esc>"
+      ]
+    }
+  ],
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": [
+        "leader",
+        "<space>"
+      ],
+      "after": [],
+      "commands": [
         {
-            "before": [
-                "j",
-                "j"
-            ],
-            "after": [
-                "<Esc>"
-            ]
+          "command": ":nohl"
         }
-    ],
-    "vim.normalModeKeyBindingsNonRecursive": [
-        {
-            "before": [
-                "leader",
-                "<space>"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": ":nohl",
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "q"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.closeActiveEditor",
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "w"
-            ],
-            "commands": [
-                "workbench.action.files.save",
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "g"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.revealDefinition",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "b"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.navigateBack",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                ","
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "workbench.action.previousEditor",
-                    "args": []
-                }
-            ]
-        },
-        {
-            "before": [
-                "leader",
-                "r"
-            ],
-            "after": [],
-            "commands": [
-                {
-                    "command": "editor.action.goToReferences",
-                    "args": []
-                }
-            ]
-        }
-    ],
-    "cSpell.enabledLanguageIds": [
-        "c",
-        "cpp",
-        "csharp",
-        "go",
-        "javascript",
-        "javascriptreact",
-        "json",
-        "latex",
-        "markdown",
-        "php",
-        "plaintext",
-        "python",
-        "ruby",
-        "text",
-        "typescript",
-        "typescriptreact",
-        "yml"
-    ],
-    "terraform.formatOnSave": true,
-    "vim.disableAnnoyingNeovimMessage": true,
-    "guides.enabled": false,
-    "vim.useCtrlKeys": false,
-    "extensions.ignoreRecommendations": true,
-    "rewrap.wrappingColumn": 80,
-    "explorer.sortOrder": "type",
-    "ruby.intellisense": "rubyLocate",
-    "sync.gist": "7a3651f6df1ff973b4b2480403305ad6",
-    "vsicons.dontShowNewVersionMessage": true,
-    "workbench.iconTheme": "vscode-icons",
-    "gitlens.views.repositories.files.layout": "list",
-    "editor.tabSize": 5,
-    "editor.cursorStyle": "line",
-    "editor.insertSpaces": false,
-    "editor.lineNumbers": "on",
-    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
-    "editor.wordWrap": "off",
-    "go.toolsManagement.autoUpdate": true,
-    "editor.formatOnSave": true,
-    "go.formatTool": "goimports",
-    "editor.renderWhitespace": "all",
-    "editor.renderControlCharacters": true,
-    "gitlens.advanced.messages": {
-        "suppressLineUncommittedWarning": true
+      ]
     },
-    "explorer.confirmDragAndDrop": false,
-    "security.workspace.trust.untrustedFiles": "newWindow",
-    "workbench.colorTheme": "Default Light+",
-    "diffEditor.renderSideBySide": false,
-    "window.zoomLevel": 1,
-    "breadcrumbs.showArrays": false,
-    "breadcrumbs.showBooleans": false,
-    "breadcrumbs.showConstants": false,
-    "breadcrumbs.showConstructors": false,
-    "breadcrumbs.showEnumMembers": false,
-    "breadcrumbs.showEnums": false,
-    "breadcrumbs.showEvents": false,
-    "breadcrumbs.showFields": false,
-    "breadcrumbs.showVariables": false,
-    "breadcrumbs.showTypeParameters": false,
-    "breadcrumbs.showStrings": false,
-    "breadcrumbs.showProperties": false,
-    "breadcrumbs.showPackages": false,
-    "breadcrumbs.showOperators": false,
-    "breadcrumbs.showNumbers": false,
-    "breadcrumbs.showNull": false,
-    "breadcrumbs.showNamespaces": false,
-    "breadcrumbs.showModules": false,
-    "breadcrumbs.showInterfaces": false,
-    "breadcrumbs.showFiles": false,
-    "breadcrumbs.icons": false,
-    "outline.problems.badges": false,
-    "outline.problems.colors": false
+    {
+      "before": [
+        "leader",
+        "q"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.closeActiveEditor"
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "w"
+      ],
+      "commands": [
+        "workbench.action.files.save"
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "g"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "editor.action.revealDefinition",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "b"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.navigateBack",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        ","
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.previousEditor",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "r"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "test-explorer.run-test-at-cursor",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "R"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "test-explorer.run-file",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
+        "d"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "test-explorer.debug-test-at-cursor",
+          "args": []
+        }
+      ]
+    }
+  ],
+  "editor.tabSize": 5,
+  "editor.cursorStyle": "line",
+  "editor.lineNumbers": "on",
+  "editor.formatOnSave": true,
+  "editor.inlineSuggest.enabled": true,
+  "editor.renderWhitespace": "trailing",
+  "editor.minimap.enabled": false,
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.colorTheme": "Default Light Modern",
+  "indentRainbow.colors": [
+    "rgba(255,255,64,0.07)",
+    "rgba(127,255,127,0.07)",
+    "rgba(79,236,236,0.07)",
+    "rgba(115,78,236,0.07)",
+  ],
+  "[ruby]": {
+    "editor.defaultFormatter": "Shopify.ruby-lsp",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+  }
 }
+
