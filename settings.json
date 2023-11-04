@@ -65,6 +65,19 @@
     {
       "before": [
         "leader",
+        "B"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "workbench.action.navigateToLastEditLocation",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
         "b"
       ],
       "after": [],
@@ -141,12 +154,43 @@
     "rgba(255,255,64,0.07)",
     "rgba(127,255,127,0.07)",
     "rgba(79,236,236,0.07)",
-    "rgba(115,78,236,0.07)",
+    "rgba(115,78,236,0.07)"
   ],
   "[ruby]": {
     "editor.defaultFormatter": "Shopify.ruby-lsp",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
-  }
+    "editor.formatOnType": true,
+    "files.trimTrailingWhitespace": true,
+    "editor.insertSpaces": true,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.rulers": [
+      120
+    ],
+    "editor.semanticHighlighting.enabled": true
+  },
+  "editor.codeActionsOnSave": {},
+  "outline.showBooleans": false,
+  "outline.showArrays": false,
+  "outline.showEnumMembers": false,
+  "outline.showEvents": false,
+  "outline.showFields": false,
+  "outline.showFiles": false,
+  "outline.showKeys": false,
+  "outline.showNull": false,
+  "outline.showNumbers": false,
+  "outline.problems.enabled": false,
+  "outline.showOperators": false,
+  "outline.showPackages": false,
+  "outline.showProperties": false,
+  "outline.showStrings": false,
+  "outline.showStructs": false,
+  "outline.showTypeParameters": false,
+  "outline.showVariables": false,
+  "outline.showObjects": false,
+  "outline.showEnums": false,
+  "outline.showConstants": false,
+  "breadcrumbs.symbolPath": "off",
+  "editor.indentSize": "tabSize"
 }
-
