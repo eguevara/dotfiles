@@ -114,3 +114,5 @@
     tool = vimdiff
 [pull]
   rebase = false
+[github]
+	user = eguevara

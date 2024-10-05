@@ -16,8 +16,13 @@ ${HOME}/.config/Code/User/settings.json:
 	install -d $(dir $@)
 	ln -fs $(PWD)/settings.json $@
 
+${HOME}/.config/Code/User/keybindings.json:
+	install -d $(dir $@)
+	ln -fs $(PWD)/keybindings.json $@
+
 .PHONY: vscode
 vscode: ${HOME}/.config/Code/User/settings.json
+vscode: ${HOME}/.config/Code/User/keybindings.json
 
 .PHONY: dotfiles
 dotfiles:

@@ -130,6 +130,19 @@
     {
       "before": [
         "leader",
+        "c"
+      ],
+      "after": [],
+      "commands": [
+        {
+          "command": "simplecov-vscode.toggle",
+          "args": []
+        }
+      ]
+    },
+    {
+      "before": [
+        "leader",
         "d"
       ],
       "after": [],
@@ -149,7 +162,6 @@
   "editor.renderWhitespace": "trailing",
   "editor.minimap.enabled": false,
   "security.workspace.trust.untrustedFiles": "open",
-  "workbench.colorTheme": "Default Light Modern",
   "indentRainbow.colors": [
     "rgba(255,255,64,0.07)",
     "rgba(127,255,127,0.07)",
@@ -192,5 +204,22 @@
   "outline.showEnums": false,
   "outline.showConstants": false,
   "breadcrumbs.symbolPath": "off",
-  "editor.indentSize": "tabSize"
+  "editor.indentSize": "tabSize",
+  "editor.gotoLocation.multipleDefinitions": "gotoAndPeek",
+  "workbench.colorTheme": "Material Theme High Contrast",
+  "githubPullRequests.terminalLinksHandler": "github",
+  "editor.fontLigatures": false,
+  "git.suggestSmartCommit": false,
+  "redhat.telemetry.enabled": false,
+  "rubyTestExplorer.logpanel": true,
+  "simplecov-vscode.enabled": false,
+  "github.codespaces.defaultExtensions": [
+    "GitHub.codespaces",
+    "oderwat.indent-rainbow",
+    "github.copilot",
+    "anykeyh.simplecov-vscode"
+  ],
+  "terminal.integrated.scrollback": 100000,
+  "terminal.integrated.copyOnSelection": true,
+  "diffEditor.ignoreTrimWhitespace": false,
 }
